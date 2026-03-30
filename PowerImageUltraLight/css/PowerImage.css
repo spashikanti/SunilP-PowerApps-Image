@@ -1,0 +1,9 @@
+.SunilP\.PowerImageUltraLight {
+    display: block;
+    overflow: hidden;
+}
+
+.SunilP\.PowerImageUltraLight picture,
+.SunilP\.PowerImageUltraLight img {
+    display: block;
+}
