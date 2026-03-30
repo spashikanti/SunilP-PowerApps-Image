@@ -18,7 +18,12 @@
       -->
     </external-service-usage>
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="ImageSources" display-name-key="Image Sources (JSON Array)" description-key="e.g. ['url.avif', 'url.webp', 'url.jpg']" of-type="Multiple" usage="bound" required="true" />
+    <property name="ImageSources" 
+          display-name-key="Image Sources (JSON Array)" 
+          description-key="Provide a JSON array: [&quot;url.avif&quot;, &quot;url.webp&quot;]" 
+          of-type="Multiple" 
+          usage="bound" 
+          required="true" />
     <property name="AltText" display-name-key="Alt Text" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="Sizes" display-name-key="Responsive Sizes" description-key="e.g. (max-width: 600px) 480px, 800px" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="ImageWidth" display-name-key="Image Width" description-key="e.g., 100% or 300px" of-type="SingleLine.Text" usage="input" required="false" />
