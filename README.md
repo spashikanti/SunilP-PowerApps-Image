@@ -69,3 +69,72 @@ JSON([
     ThisItem.WebpUrl, 
     ThisItem.JpgUrl
 ])
+```
+
+## ⚙️ Input Parameters
+
+| Property | Name | Example Value | Notes |
+| :--- | :--- | :--- | :--- |
+| **Image Sources** | `ImageSources` | `["url.avif", "url.webp", "url.jpg"]` | A JSON array of all available formats. |
+| **Sizes** | `Sizes` | `200px` | A hint for the browser to pick the right resolution. |
+| **Image Width** | `ImageWidth` | `300px` or `100%` | The CSS width of the image element. |
+| **Image Height** | `ImageHeight` | `300px` or `auto` | The CSS height of the image element. |
+| **Alt Text** | `AltText` | `Gold Diamond Ring` | Accessibility description for screen readers. |
+
+---
+
+## 🏗️ Architecture Detail
+The component follows the **"Performance First"** principle:
+1. **Input:** Takes a raw JSON array of URLs from Power Apps.
+2. **Processing:** Extracts file extensions and assigns a priority rank (AVIF=1, WebP=2, etc.).
+3. **Sorting:** Internally sorts the list so the most efficient format is always at the top of the `<picture>` stack.
+4. **Rendering:** - Generates `<source>` tags for modern formats (AVIF/WebP).
+   - Generates a single `<img>` tag as the legacy fallback.
+   - Applies `loading="lazy"` and CSS styles for layout stability.
+  
+---
+
+## 🧰 Troubleshooting
+
+**❗ Image not showing up**
+- Verify the URL is publicly accessible or has the correct CORS headers for your Power Apps domain.
+- Ensure the JSON array is properly formatted, e.g., `["https://link1.avif", "https://link2.jpg"]`.
+
+**❗ Browser still loading JPEG instead of AVIF**
+- Open **DevTools → Network** tab. If the browser is older (e.g., legacy Edge or IE), it will default to the `<img>` fallback. 
+- Check the **Type** column in DevTools to verify if `webp` or `avif` is being served to modern browsers.
+
+**❗ Layout Shift (Jumping Content)**
+- To prevent layout shift, provide an explicit **Image Height** (e.g., `300px`) instead of `auto`. This reserves the space in the gallery before the image finishes downloading.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+- File **Issues** for bugs or feature requests.
+- Submit **Pull Requests** for performance optimizations or new format support.
+
+---
+
+# 👤 Author
+
+<table style="border: none;">
+  <tr>
+    <td style="border: none;">
+      <strong>Sunil Kumar Pashikanti</strong><br>
+      <em>Principal Architect | Microsoft Power Platform Super User</em><br><br>
+
+[![Community](https://img.shields.io/badge/Community-View%20Profile-indigo?style=for-the-badge&logo=microsoft)](https://community.powerplatform.com/profile/?userid=8077d18b-7b47-ee11-be6d-6045bdebe084)
+&nbsp;
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sunil-kumar-pashikanti/)
+&nbsp;
+[![Blog](https://img.shields.io/badge/Blog-Blogger-FF5722?style=for-the-badge&logo=blogger)](http://sunilpashikanti.blogspot.com)
+&nbsp;
+[![Website](https://img.shields.io/badge/Portfolio-Visit-yellow?style=for-the-badge&logo=google-chrome)](https://sunilpashikanti.com)
+
+</td>
+  </tr>
+</table>
+
+**Support the Project:** If this solution helped you optimize your app and solve the 91MB payload problem, please consider giving it a ⭐ to help others find it!
