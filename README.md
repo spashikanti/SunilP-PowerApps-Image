@@ -129,4 +129,4 @@ As a **Power Platform Super User**, I build these components to solve real-world
 &nbsp;
 [![Website](https://img.shields.io/badge/Portfolio-Visit-yellow?style=for-the-badge&logo=google-chrome)](https://sunilpashikanti.com)
 
-**Support the Project:** If this solution helped you optimize your app, please consider giving it a ⭐ to help others find it!
+**Support the Project:** If this solution helped you, please consider giving it a ⭐ to help others find it!
