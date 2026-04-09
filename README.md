@@ -25,11 +25,7 @@ This PCF (Power Apps Control Framework) component replaces the standard Image co
 [![Download ZIP](https://img.shields.io/badge/Download-Solution-blue?style=for-the-badge&logo=github)](https://github.com/sunilpashikanti/SunilP-PowerApps-Image/releases/latest)
 [![Release](https://img.shields.io/github/v/release/sunilpashikanti/SunilP-PowerApps-Image?style=for-the-badge&logo=github&color=brightgreen)](https://github.com/sunilpashikanti/SunilP-PowerApps-Image/releases/latest)
 
-<video src="./SunilP-PowerApps-Image.mp4" controls="controls" muted="muted" autoplay="autoplay" loop="loop" style="max-width: 100%;">
-  Your browser does not support the video tag.
-</video>
-
-![PowerImage Demo](./SunilP-PowerApps-Image.mp4)
+![PowerImage Demo](./SunilP-PowerApps-Image.gif)
 
 ---
 
