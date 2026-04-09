@@ -114,6 +114,9 @@ Contributions are welcome!
 
 ---
 
+## 🤝 Community & Contribution
+As a **Power Platform Super User**, I build these components to solve real-world architectural bottlenecks. Whether it's optimizing payload sizes or enhancing UI responsiveness, I'm always looking for better patterns. If you have ideas or optimizations, feel free to open a Pull Request!
+
 # 👤 Author
 
 **Sunil Kumar Pashikanti** *Principal Architect | Microsoft Power Platform Super User*
@@ -126,4 +129,4 @@ Contributions are welcome!
 &nbsp;
 [![Website](https://img.shields.io/badge/Portfolio-Visit-yellow?style=for-the-badge&logo=google-chrome)](https://sunilpashikanti.com)
 
-**Support the Project:** If this solution helped you optimize your app and solve the 91MB payload problem, please consider giving it a ⭐ to help others find it!
+**Support the Project:** If this solution helped you optimize your app, please consider giving it a ⭐ to help others find it!
