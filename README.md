@@ -39,18 +39,24 @@ This PCF (Power Apps Control Framework) component replaces the standard Image co
 ## 📦 What’s in the Solution
 
 - **Managed & Unmanaged ZIPs**: Both versions included for easy deployment.
-- **PCF Control**: `PowerImageUltraLight`
 - **Manifest**: `ControlManifest.Input.xml` (Optimized property schema)
+- **Solution Name**: `SunilP Power Image Solution`
+- **Unique Name**: `SunilP Power Image Solution`
+- **Publisher**: `SunilP` (Prefix: `sunilp`)
+- **Version**: `1.0`
+- **Components**: PCF Control (`PowerImageUltraLight`)
 
 ---
 
 ## 🚀 Installation
 
-1. **Download** the solution zip: `PowerImageSolution_managed.zip`.
+1. **Download** the solution zip from the [Releases](https://github.com/sunilpashikanti/SunilP-PowerApps-Image/releases) page:
+   - Use `SunilP Power Image Solution_managed.zip` for **Production/Test** environments.
+   - Use `SunilP Power Image Solution.zip` for **Development** environments.
 2. Go to **Power Apps → Solutions → Import**.
 3. **Upload** the ZIP file and complete the import.
 4. Inside your Canvas App:
-   **Insert → Get more components → Code → PowerImage Ultra-Light**.
+   **Insert → Get more components → Code → SunilP PowerImage**.
 
 ---
 
