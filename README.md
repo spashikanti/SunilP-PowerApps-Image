@@ -11,28 +11,49 @@ High-performance PCF component to solve the "91MB Payload" problem in Power Apps
 ### 💡 The Solution
 This PCF (Power Apps Control Framework) component replaces the standard Image control to drastically reduce app memory usage and loading times. It is specifically designed for image-heavy galleries where standard JPEG/PNG assets cause performance bottlenecks.
 
+![PowerImage Demo](./SunilP-PowerApps-Image.gif)
+
 - **Format Negotiation**: Uses the HTML5 `<picture>` tag to serve **AVIF** or **WebP** automatically based on browser support.
-- **Native Container Sizing**: The component automatically inherits dimensions (Width/Height) directly from the Power Apps canvas settings.
+- **Native Container Sizing**: Inherits dimensions (Width/Height) directly from the Power Apps canvas settings.
 - **Native Lazy Loading**: Built-in `loading="lazy"` ensures off-screen images don't impact initial app load.
 - **Zero-Dependency**: Built with an "Ultra-Light" footprint for maximum execution speed.
 
 ---
 
-## ⬇️ Get Started
+### 📉 Performance & Payload Reduction Matrix
 
-**Download the latest Power Platform solution package (ZIP) to optimize your app's image delivery:**
+The architectural pattern involves maintaining one image in three formats. The browser automatically negotiates and downloads only **one** (the most efficient one it supports).
+
+#### Real-World Compression Comparison
+*Source: 2,000 KB JPEG baseline*
+
+| Format | File Size (Avg) | Savings vs. JPEG | Browser Support |
+| :--- | :--- | :--- | :--- |
+| **JPEG (Legacy)** | 2,000 KB | 0% (Baseline) | 100% (Universal) |
+| **WebP (Modern)** | 600 KB | ~70% Reduction | 96% |
+| **AVIF (Next-Gen)** | 350 KB | **~82% Reduction** | 93% |
+
+#### Total Payload Impact (Gallery of 50 Images)
+
+| Strategy | Total Data Downloaded | App Loading Speed |
+| :--- | :--- | :--- |
+| **Standard JPEG Control** | **100 MB** | Very Slow (High Crash Risk) |
+| **WebP Negotiation** | **30 MB** | Fast / Responsive |
+| **AVIF Negotiation** | **17.5 MB** | **Ultra-Fast Performance** |
+
+---
+
+## ⬇️ Get Started
 
 [![Download ZIP](https://img.shields.io/badge/Download-Solution-blue?style=for-the-badge&logo=github)](https://github.com/spashikanti/SunilP-PowerApps-Image/releases/latest)
 [![Release](https://img.shields.io/github/v/release/spashikanti/SunilP-PowerApps-Image?style=for-the-badge&logo=github&color=brightgreen)](https://github.com/spashikanti/SunilP-PowerApps-Image/releases/latest)
-
-![PowerImage Demo](./SunilP-PowerApps-Image.gif)
 
 ---
 
 ## ✨ Features
 
-- **No Complex Formulas**: Pass URLs directly as text properties, no JSON formatting or string concatenation required.
-- **Auto-Sizing**: Respects the Width and Height properties of the control within the Power Apps Studio.
+- **No Complex Formulas**: Pass URLs directly as text properties; no JSON formatting required.
+- **Auto-Sizing**: Respects the Width and Height properties of the control within the Studio.
 - **Fail-safe Fallback**: Always falls back to standard JPEG/PNG if modern formats aren't available.
 - **Accessibility**: Built-in support for dynamic Alt-Text for screen readers.
 
@@ -52,19 +73,14 @@ This PCF (Power Apps Control Framework) component replaces the standard Image co
 
 ## 🚀 Installation
 
-1. **Download** the solution zip from the [Releases](https://github.com/spashikanti/SunilP-PowerApps-Image/releases) page:
-   - Use `SunilP Power Image Solution_managed.zip` for **Production/Test** environments.
-   - Use `SunilP Power Image Solution.zip` for **Development** environments.
+1. **Download** the solution zip from the [Releases](https://github.com/spashikanti/SunilP-PowerApps-Image/releases) page.
 2. Go to **Power Apps → Solutions → Import**.
 3. **Upload** the ZIP file and complete the import.
-4. Inside your Canvas App:
-   **Insert → Get more components → Code → SunilP PowerImage**.
+4. Inside your Canvas App: **Insert → Get more components → Code → PowerImage Ultra-Light**.
 
 ---
 
 ## 🔧 How It Works (Power Fx)
-
-Map your data source fields directly to the component properties in the property pane. 
 
 ```powerapps
 // Example configuration in a Gallery
@@ -86,6 +102,27 @@ AltText:    ThisItem.Title
 
 ---
 
+### 🛠️ Strategic Implementation: The "Triple-Asset" Pattern
+
+To use this component effectively, your data source (SharePoint, Dataverse, or Azure Blob Storage) should be structured to store three URLs for every single image record.
+
+**The Workflow:**
+1.  **Original:** Upload your high-resolution 2MB JPEG to your storage.
+2.  **Conversion:** Generate a `.webp` and `.avif` version of that same image.
+3.  **Storage:** Store all three unique URLs in your database.
+4.  **PCF Mapping:** Map these URLs to the corresponding `AVIFSource`, `WebPSource`, and `JPEGSource` properties in Power Apps.
+
+> **Architect's Insight:** This approach ensures **Digital Inclusion**. High-end mobile users on 5G/WiFi receive the 350KB AVIF asset, while users on older enterprise hardware or legacy browsers still receive the 2MB JPEG fallback. No user is left with a broken image link.
+
+---
+
+### 🌱 Sustainability & Operational Impact
+
+* **Carbon Footprint:** Moving from 100MB to 17.5MB per gallery load significantly reduces the energy consumption of both the data center and the end-user's mobile device battery.
+* **Operational Excellence:** This solution bridges the gap between high-fidelity marketing requirements (photos must be sharp) and technical constraints (apps must be fast).
+
+---
+
 ## 🏗️ Architecture Detail
 The component follows the **"Performance First"** principle:
 1. **Multi-Source Stack:** It builds a prioritized HTML5 stack using the `<picture>` element.
@@ -97,15 +134,15 @@ The component follows the **"Performance First"** principle:
 ## 🧰 Troubleshooting
 
 **❗ Image not showing up**
-- Verify the URL is publicly accessible or has the correct CORS headers for your Power Apps domain.
-- Ensure the **JPEG Source** is provided, as it is a required field for the fallback logic.
+* Verify the URL is publicly accessible or has the correct CORS headers for your Power Apps domain.
+* Ensure the **JPEG Source** is provided, as it is a required field for the fallback logic.
 
 **❗ Browser still loading JPEG instead of AVIF**
-- Open **DevTools (F12) → Network** tab. If the browser is older (e.g., legacy Edge), it will default to the JPEG fallback.
-- Check the **Type** column in DevTools to verify if `webp` or `avif` is being served to modern browsers.
+* Open **DevTools (F12) → Network** tab. If the browser is older (e.g., legacy Edge), it will default to the JPEG fallback.
+* Check the **Type** column in DevTools to verify if `webp` or `avif` is being served to modern browsers.
 
 **❗ Layout Shift (Jumping Content)**
-- To prevent layout shift, ensure the control has a fixed size in your Gallery. This reserves the space on the canvas before the image finishes downloading.
+* To prevent layout shift, ensure the control has a fixed size in your Gallery. This reserves the space on the canvas before the image finishes downloading.
 
 ---
 
