@@ -22,8 +22,8 @@ This PCF (Power Apps Control Framework) component replaces the standard Image co
 
 **Download the latest Power Platform solution package (ZIP) to optimize your app's image delivery:**
 
-[![Download ZIP](https://img.shields.io/badge/Download-Solution-blue?style=for-the-badge&logo=github)](https://github.com/sunilpashikanti/SunilP-PowerApps-Image/releases/latest)
-[![Release](https://img.shields.io/github/v/release/sunilpashikanti/SunilP-PowerApps-Image?style=for-the-badge&logo=github&color=brightgreen)](https://github.com/sunilpashikanti/SunilP-PowerApps-Image/releases/latest)
+[![Download ZIP](https://img.shields.io/badge/Download-Solution-blue?style=for-the-badge&logo=github)](https://github.com/spashikanti/SunilP-PowerApps-Image/releases/latest)
+[![Release](https://img.shields.io/github/v/release/spashikanti/SunilP-PowerApps-Image?style=for-the-badge&logo=github&color=brightgreen)](https://github.com/spashikanti/SunilP-PowerApps-Image/releases/latest)
 
 ![PowerImage Demo](./SunilP-PowerApps-Image.gif)
 
@@ -52,7 +52,7 @@ This PCF (Power Apps Control Framework) component replaces the standard Image co
 
 ## 🚀 Installation
 
-1. **Download** the solution zip from the [Releases](https://github.com/sunilpashikanti/SunilP-PowerApps-Image/releases) page:
+1. **Download** the solution zip from the [Releases](https://github.com/spashikanti/SunilP-PowerApps-Image/releases) page:
    - Use `SunilP Power Image Solution_managed.zip` for **Production/Test** environments.
    - Use `SunilP Power Image Solution.zip` for **Development** environments.
 2. Go to **Power Apps → Solutions → Import**.
