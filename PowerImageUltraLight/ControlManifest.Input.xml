@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="SunilP" constructor="PowerImageUltraLight" version="0.0.1" display-name-key="PowerImage Ultra-Light" description-key="High-performance adaptive image loading." control-type="standard" >
+  <control namespace="SunilP" constructor="PowerImageUltraLight" version="1.0.0" 
+  display-name-key="SunilP Power Image" description-key="High-performance adaptive image loading." control-type="standard" >
     <!--external-service-usage node declares whether this 3rd party PCF control is using external service or not, if yes, this control will be considered as premium and please also add the external domain it is using.
     If it is not using any external service, please set the enabled="false" and DO NOT add any domain below. The "enabled" will be false by default.
     Example1:
@@ -17,17 +18,11 @@
       <domain></domain>
       -->
     </external-service-usage>
-    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="ImageSources" 
-          display-name-key="Image Sources (JSON Array)" 
-          description-key="Provide a JSON array: [&quot;url.avif&quot;, &quot;url.webp&quot;]" 
-          of-type="Multiple" 
-          usage="bound" 
-          required="true" />
-    <property name="AltText" display-name-key="Alt Text" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="Sizes" display-name-key="Responsive Sizes" description-key="e.g. (max-width: 600px) 480px, 800px" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="ImageWidth" display-name-key="Image Width" description-key="e.g., 100% or 300px" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="ImageHeight" display-name-key="Image Height" description-key="e.g., auto or 250px" of-type="SingleLine.Text" usage="input" required="false" />
+    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->  
+    <property name="AVIFSource" display-name-key="AVIF Source" description-key="URL for the AVIF version" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="WebPSource" display-name-key="WebP Source" description-key="URL for the WebP version" of-type="SingleLine.Text" usage="input" required="false" />  
+    <property name="JPEGSource" display-name-key="JPEG Source (Fallback)" description-key="URL for the standard JPEG version" of-type="SingleLine.Text" usage="input" required="true" />
+    <property name="AltText" display-name-key="Alt Text" description-key="Alternative text for the image" of-type="SingleLine.Text" usage="input" required="false" />
     <!--
       Property node's of-type attribute can be of-type-group attribute.
       Example:
